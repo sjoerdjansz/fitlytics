@@ -1,0 +1,11 @@
+.layout-container {
+  display: flex;
+  height: 100vh;
+  background-color: var(--color-bg);
+}
+
+.layout-content {
+  flex: 1;
+  padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-lg) 0;
+  overflow: hidden;
+}

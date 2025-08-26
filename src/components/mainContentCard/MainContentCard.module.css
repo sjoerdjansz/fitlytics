@@ -1,0 +1,29 @@
+.main-content-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-base);
+  box-shadow: var(--shadow-subtle);
+  height: 100%;
+}
+
+.main-content-card > section {
+  width: 100%;
+}
+
+.title {
+  font-size: var(--font-size-large);
+  text-transform: capitalize;
+}
+
+.page-content-container {
+}
+
+.row {
+  flex-direction: row;
+}
+
+.column {
+  flex-direction: column;
+}

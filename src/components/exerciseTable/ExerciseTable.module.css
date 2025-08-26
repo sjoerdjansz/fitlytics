@@ -1,0 +1,59 @@
+table {
+  height: 100%;
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: separate;
+  font-size: var(--font-size-small);
+}
+
+thead {
+  text-align: left;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  background-color: var(--color-surface-variant);
+}
+
+th,
+td {
+  padding: var(--spacing-md);
+  /*white-space: nowrap;*/
+}
+
+thead tr:first-child th:first-child {
+  border-top-left-radius: var(--radius-base);
+}
+
+thead tr:first-child th:last-child {
+  border-top-right-radius: var(--radius-base);
+}
+
+/* lijn onder elke rij ! werkte niet op tr dus op td*/
+table tbody td {
+  border-bottom: 1px solid var(--color-border);
+}
+
+td {
+  text-transform: capitalize;
+  color: var(--color-text-primary);
+}
+
+tbody tr:hover {
+  background-color: var(--color-bg);
+}
+
+.th-content {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+}
+
+/* zorgt dat svg icon niet kan krimpen */
+.th-content svg {
+  flex-shrink: 0;
+}
+
+.edit-exercise {
+  cursor: pointer;
+}

@@ -1,0 +1,13 @@
+.exercises {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  padding: var(--spacing-md);
+}
+
+.controls {
+  display: flex;
+  flex-direction: row;
+  padding: var(--spacing-md) 0;
+  gap: 2rem;
+}
