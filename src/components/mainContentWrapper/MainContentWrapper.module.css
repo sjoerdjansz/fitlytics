@@ -1,0 +1,6 @@
+.main-content {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  padding: var(--spacing-md);
+}
