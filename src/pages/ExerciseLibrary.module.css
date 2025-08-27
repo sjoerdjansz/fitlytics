@@ -8,6 +8,14 @@
 .controls {
   display: flex;
   flex-direction: row;
+  flex: 1;
   padding: var(--spacing-md) 0;
-  gap: 2rem;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .controls {
+    flex-direction: column;
+  }
 }

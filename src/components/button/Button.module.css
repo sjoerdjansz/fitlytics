@@ -1,0 +1,37 @@
+.btn {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: none;
+  border-radius: var(--radius-small);
+  box-shadow: var(--shadow-subtle);
+}
+
+.btn:first-letter {
+  text-transform: uppercase;
+}
+
+.primary-cta {
+  background-color: var(--color-accent-primary);
+  color: #ffffff;
+}
+
+.secondary-cta {
+  border: 1px solid var(--color-accent-primary);
+  color: var(--color-accent-primary);
+  background-color: transparent;
+}
+
+.tertiary-cta {
+  background-color: var(--color-surface-variant);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+}
+
+.destructive-cta {
+  background-color: var(--color-error);
+  color: #ffffff;
+}
+
+.success-cta {
+  background-color: var(--color-success);
+  color: #ffffff;
+}
