@@ -1,17 +1,48 @@
 .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   padding: var(--spacing-sm) var(--spacing-lg);
   border: none;
   border-radius: var(--radius-small);
   box-shadow: var(--shadow-subtle);
+  white-space: nowrap;
+  width: auto;
+  cursor: pointer;
+  max-inline-size: 100%;
 }
 
-.btn:first-letter {
-  text-transform: uppercase;
+.small {
+  padding: var(--spacing-xs) var(--spacing-md);
+  font-size: 0.9rem;
+}
+
+.medium {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-size: 1rem;
+}
+
+.large {
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: 1.125rem;
+}
+
+.fluid {
+  inline-size: 100%;
 }
 
 .primary-cta {
   background-color: var(--color-accent-primary);
   color: #ffffff;
+}
+
+.primary-cta:hover {
+  background-color: var(--color-accent-primary-hover);
+}
+
+.primary-cta:focus {
+  background-color: var(--color-accent-primary-focus);
 }
 
 .secondary-cta {

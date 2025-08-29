@@ -1,5 +1,5 @@
 import styles from "./Navbar.module.css";
-import { ROUTES } from "../../data/routes.jsx";
+import { ROUTES } from "../../constants/routes.jsx";
 import { Link, NavLink } from "react-router-dom";
 import { CaretLeft, CaretRight, SignOut } from "@phosphor-icons/react";
 import { useState } from "react";
@@ -32,6 +32,7 @@ export function Navbar() {
       <div className={styles["side-nav__middle"]}>
         <ul className={styles["nav-links"]}>
           {ROUTES.map((item) => {
+            const Icon = item.icon;
             if (item.showInNav) {
               return (
                 <li className={styles["nav-link"]} key={item.name}>
@@ -41,7 +42,9 @@ export function Navbar() {
                       isActive ? styles.selected : ""
                     }
                   >
-                    <span className={styles["nav-icon"]}>{item.icon}</span>
+                    <span className={styles["nav-icon"]}>
+                      {<Icon size={16} />}
+                    </span>
                     {item.name}
                   </NavLink>
                 </li>

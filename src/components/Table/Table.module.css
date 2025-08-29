@@ -10,7 +10,7 @@ thead {
   text-align: left;
   font-weight: 500;
   color: var(--color-text-secondary);
-  background-color: var(--color-surface-variant);
+  background-color: var(--color-surface);
 }
 
 th,

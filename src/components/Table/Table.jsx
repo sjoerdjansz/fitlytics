@@ -1,8 +1,8 @@
-import styles from "./ExerciseTable.module.css";
+import styles from "./Table.module.css";
 import { CaretUpDown, DotsThreeVertical } from "@phosphor-icons/react";
 import { useEffect, useMemo, useState } from "react";
 
-export function ExerciseTable({ data }) {
+export function Table({ data }) {
   const [exercises, setExercises] = useState([]);
   const [sortType, setSortType] = useState("id");
   const [sortDirection, setSortDirection] = useState("asc");
@@ -16,41 +16,49 @@ export function ExerciseTable({ data }) {
       name: "Name",
       label: "name",
       sortable: true,
+      render: true,
     },
     {
       name: "Body part",
       label: "bodyPart",
       sortable: true,
+      render: true,
     },
     {
       name: "Primary",
       label: "primaryMuscle",
       sortable: true,
+      render: true,
     },
     {
       name: "Secondary",
       label: "secondaryMuscles",
       sortable: false,
+      render: true,
     },
     {
       name: "Joints",
       label: "primaryJoints",
       sortable: false,
+      render: false,
     },
     {
       name: "Movement",
       label: "movement",
       sortable: true,
+      render: true,
     },
     {
       name: "Load score",
       label: "systemicLoad",
       sortable: true,
+      render: true,
     },
     {
       name: "Edit",
       label: "edit",
       sortable: false,
+      render: true,
     },
   ];
 
@@ -101,19 +109,21 @@ export function ExerciseTable({ data }) {
       <thead>
         <tr>
           {TABLE_HEADERS.map((item) => {
-            return (
-              <th
-                key={item.label}
-                onClick={
-                  item.sortable ? () => getSortValues(item.label) : undefined
-                }
-              >
-                <span className={styles["th-content"]}>
-                  {item.name}
-                  {item.sortable && <CaretUpDown size={16} />}
-                </span>
-              </th>
-            );
+            if (item.render) {
+              return (
+                <th
+                  key={item.label}
+                  onClick={
+                    item.sortable ? () => getSortValues(item.label) : undefined
+                  }
+                >
+                  <span className={styles["th-content"]}>
+                    {item.name}
+                    {item.sortable && <CaretUpDown size={16} />}
+                  </span>
+                </th>
+              );
+            }
           })}
         </tr>
       </thead>
@@ -126,7 +136,6 @@ export function ExerciseTable({ data }) {
                 <td>{item.bodyPart}</td>
                 <td>{item.primaryMuscle}</td>
                 <td>{item.secondaryMuscles.join(", ")}</td>
-                <td>{item.primaryJoints.join(", ")}</td>
                 <td>{item.movement}</td>
                 <td>{item.systemicLoad}</td>
                 <td className={styles["edit-exercise"]}>

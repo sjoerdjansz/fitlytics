@@ -7,42 +7,49 @@ import {
   Users,
 } from "@phosphor-icons/react";
 
+// later nog auth/role velden
 export const ROUTES = [
   {
     name: "dashboard",
     path: "/",
     showInNav: true,
-    icon: <Gauge size={16} />,
+    icon: Gauge,
   },
   {
     name: "exercises",
     path: "/exercise-library",
     showInNav: true,
-    icon: <Books size={16} />,
+    icon: Books,
+    children: [
+      {
+        name: "create exercise",
+        path: "create",
+      },
+    ],
   },
   {
     name: "programs",
     path: "/programs",
     showInNav: true,
-    icon: <Folder size={16} />,
+    icon: Folder,
   },
   {
     name: "workouts",
     path: "/workouts",
     showInNav: true,
-    icon: <FileText size={16} />,
+    icon: FileText,
   },
   {
     name: "clients",
     path: "/clients",
     showInNav: true,
-    icon: <Users size={16} />,
+    icon: Users,
   },
   {
     name: "settings",
     path: "/settings",
     showInNav: true,
-    icon: <Gear size={16} />,
+    icon: Gear,
   },
   {
     name: "signup",

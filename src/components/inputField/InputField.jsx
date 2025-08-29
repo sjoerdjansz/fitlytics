@@ -7,26 +7,19 @@ export function InputField({
   id,
   placeholder,
   required = false,
-  width = "full",
-  direction = "row",
+  min,
+  max,
 }) {
-  const WIDTH_CLASS = {
-    sm: styles.widthSm,
-    md: styles.widthMd,
-    lg: styles.widthLg,
-    full: styles.widthFull,
-  };
-
-  const widthClass = WIDTH_CLASS[width] ?? WIDTH_CLASS.full;
-
   return (
-    <div
-      className={`${styles["input-field-wrapper"]} ${widthClass}`}
-      style={{
-        flexDirection: direction,
-      }}
-    >
-      {label ? <label htmlFor={id}>{label}</label> : null}
+    <>
+      {label ? (
+        <label
+          htmlFor={id}
+          className={`${required ? styles["required"] : undefined}]}`}
+        >
+          {label}
+        </label>
+      ) : null}
       <input
         className={styles["input-field"]}
         type={type}
@@ -34,7 +27,10 @@ export function InputField({
         name={name}
         placeholder={placeholder ?? undefined}
         required={required}
+        min={min ?? undefined} // TODO later alleen min/max zetten voor types die dit ondersteunen (nu staan
+        // ze onterecht op alle)
+        max={max ?? undefined}
       />
-    </div>
+    </>
   );
 }

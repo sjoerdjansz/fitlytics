@@ -1,0 +1,40 @@
+.input-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  min-width: 0;
+}
+
+.widthSm {
+  flex-basis: 12rem;
+}
+
+.widthMd {
+  flex-basis: 20rem;
+}
+
+.widthLg {
+  flex-basis: 28rem;
+}
+
+.widthFull {
+  flex-basis: 100%;
+}
+
+.row {
+  flex-direction: row;
+  align-items: center;
+}
+
+.column {
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .widthSm,
+  .widthMd,
+  .widthLg,
+  .widthFull {
+    flex-basis: 0;
+  }
+}

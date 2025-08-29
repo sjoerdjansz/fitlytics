@@ -1,6 +1,6 @@
 import styles from "./CollapsedNavbar.module.css";
 import { CaretLeft, CaretRight, SignOut } from "@phosphor-icons/react";
-import { ROUTES } from "../../data/routes.jsx";
+import { ROUTES } from "../../constants/routes.jsx";
 import { Link, NavLink } from "react-router-dom";
 
 export function CollapsedNavbar({ toggleNav }) {

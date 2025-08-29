@@ -1,16 +1,16 @@
 import styles from "./MainContentCard.module.css";
 
-export function MainContentCard({ title, flexDirection, children }) {
+export function MainContentCard({ title, flexDirection, children, actions }) {
   return (
-    <div className={styles["main-content-card"]}>
-      <section>
+    <section className={styles["main-content-card"]}>
+      <header className={styles["header"]}>
         <h1 className={styles.title}>{title}</h1>
-        <hr />
-      </section>
+        {actions && <div className={styles["actions"]}>{actions}</div>}
+      </header>
       <section
         className={`${styles["page-content-container"]} ${styles[flexDirection]}`}
       ></section>
       {children}
-    </div>
+    </section>
   );
 }
