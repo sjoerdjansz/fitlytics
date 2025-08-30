@@ -20,6 +20,7 @@ export function CollapsedNavbar({ toggleNav }) {
       <div className={styles["side-nav__middle"]}>
         <ul className={styles["nav-links"]}>
           {ROUTES.map((item) => {
+            const Icon = item.icon;
             if (item.showInNav) {
               return (
                 <li className={styles["nav-link"]} key={item.name}>
@@ -29,7 +30,9 @@ export function CollapsedNavbar({ toggleNav }) {
                       isActive ? styles.selected : ""
                     }
                   >
-                    <span className={styles["nav-icon"]}>{item.icon}</span>
+                    <span className={styles["nav-icon"]}>
+                      {<Icon size={16} />}
+                    </span>
                   </NavLink>
                 </li>
               );

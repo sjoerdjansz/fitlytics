@@ -1,7 +1,6 @@
 .create-exercise-form {
   display: flex;
   flex-direction: column;
-  /*flex: 1;*/
   gap: var(--spacing-md);
 }
 
@@ -16,9 +15,60 @@
   border-radius: var(--radius-base);
   border: 1px solid var(--color-border);
   flex-wrap: wrap;
+  flex: 1;
 }
 
-.create-exercise__other {
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.form-footer > :first-child {
+  display: flex;
+  gap: var(--spacing-lg);
+  flex: 1;
+}
+
+/*SIDEBAR STYLING*/
+
+.create-exercise-sidebar {
   display: flex;
   flex-direction: column;
+  flex: 0 0 360px;
+  border-radius: var(--radius-base);
+  padding: var(--spacing-md);
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  gap: var(--spacing-md);
+  overflow-y: auto;
+}
+
+.user-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  flex: 1;
+}
+
+@media (max-width: 900px) {
+  .create-exercise-sidebar {
+    flex: 1;
+    overflow: hidden;
+  }
+}
+
+/* temp styling stuff*/
+
+.muscles-list > li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hamstrings {
+  align-self: center;
+  width: 75%;
 }

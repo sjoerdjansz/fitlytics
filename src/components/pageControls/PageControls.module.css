@@ -6,13 +6,13 @@
   flex-wrap: wrap;
 }
 
-@media (max-width: 768px) {
-  .page-controls {
-    flex-direction: column;
-    align-items: stretch;
-  }
+/*@media (max-width: 900px) {*/
+/*  .page-controls {*/
+/*    flex-direction: column;*/
+/*    !*align-items: stretch;*!*/
+/*  }*/
 
-  .page-controls > * {
-    inline-size: 100%;
-  }
-}
+/*  .page-controls > * {*/
+/*    inline-size: 100%;*/
+/*  }*/
+/*}*/

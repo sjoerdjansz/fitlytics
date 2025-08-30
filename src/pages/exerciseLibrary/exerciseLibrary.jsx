@@ -3,7 +3,7 @@ import { MainContentCard } from "../../components/mainContentCard/MainContentCar
 import { EXERCISES } from "../../constants/exercises.js";
 import { Table } from "../../components/Table/Table.jsx";
 import { Button } from "../../components/button/Button.jsx";
-import { InputField } from "../../components/inputField/InputField.jsx";
+import { InputField } from "../../components/inputFields/InputField.jsx";
 import { MainContentWrapper } from "../../components/mainContentWrapper/MainContentWrapper.jsx";
 import { PageControls } from "../../components/pageControls/PageControls.jsx";
 import { SelectField } from "../../components/selectField/SelectField.jsx";

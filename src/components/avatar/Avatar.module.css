@@ -1,0 +1,21 @@
+.avatar-wrapper {
+  --size: 50px;
+  block-size: var(--size);
+  inline-size: var(--size);
+  aspect-ratio: 1 /1;
+  border-radius: 50%;
+  display: inline-flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-border);
+  color: var(--color-text-primary);
+}
+
+.avatar-wrapper > img {
+  object-fit: cover;
+  object-position: center;
+  inline-size: 100%;
+  block-size: 100%;
+  display: block;
+}

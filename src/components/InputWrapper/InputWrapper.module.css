@@ -1,24 +1,8 @@
 .input-wrapper {
   display: flex;
-  flex-wrap: wrap;
   gap: var(--spacing-md);
   min-width: 0;
-}
-
-.widthSm {
-  flex-basis: 12rem;
-}
-
-.widthMd {
-  flex-basis: 20rem;
-}
-
-.widthLg {
-  flex-basis: 28rem;
-}
-
-.widthFull {
-  flex-basis: 100%;
+  max-width: 100%;
 }
 
 .row {
@@ -30,11 +14,61 @@
   flex-direction: column;
 }
 
-@media (max-width: 768px) {
-  .widthSm,
-  .widthMd,
-  .widthLg,
-  .widthFull {
-    flex-basis: 0;
+.wSm {
+  flex: 1 1 12rem;
+}
+
+.wMd {
+  flex: 1 1 20rem;
+}
+
+.wLg {
+  flex: 1 1 28rem;
+}
+
+.wFull {
+  flex: 1 1 100%;
+}
+
+@media (max-width: 900px) {
+  .wSm,
+  .wMd,
+  .wLg,
+  .wFull {
+    flex: 1 1 100%;
   }
+}
+
+.input-wrapper > label {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+  min-width: fit-content;
+}
+
+.label-wrapper {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+.icon-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.input-wrapper > label > :last-child:hover {
+  color: var(--color-accent-primary);
+}
+
+.description {
+  font-size: var(--font-size-xsmall);
+  color: var(--color-text-secondary);
+}
+
+/* zorg dat content kan krimpen binnen wrapper */
+.input-wrapper > * {
+  min-width: 0;
 }

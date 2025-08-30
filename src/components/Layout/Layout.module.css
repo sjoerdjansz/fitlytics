@@ -9,3 +9,10 @@
   padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-lg) 0;
   overflow: hidden;
 }
+
+@media (max-width: 900px) {
+  .layout-container {
+    height: auto;
+    overflow: auto;
+  }
+}

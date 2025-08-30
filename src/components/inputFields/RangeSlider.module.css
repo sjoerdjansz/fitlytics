@@ -1,0 +1,45 @@
+.slider-container {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.range-input-field {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.systemic-load-score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-surface);
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  box-shadow: var(--shadow-subtle);
+}
+
+.wSm {
+  flex: 0 0 12rem;
+}
+
+.wMd {
+  flex: 0 0 20rem;
+}
+
+.wLg {
+  flex: 0 0 28rem;
+}
+
+.wFull {
+  flex: 1 1 100%;
+}
+
+@media (max-width: 900px) {
+  .wSm,
+  .wMd,
+  .wLg,
+  .wFull {
+    flex: 1 1 100%;
+  }
+}
