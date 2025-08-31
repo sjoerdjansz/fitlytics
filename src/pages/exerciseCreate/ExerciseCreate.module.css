@@ -1,7 +1,19 @@
+.testdiv {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  background-color: red;
+  flex: 1;
+}
+
 .create-exercise-form {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
+  background-color: var(--color-surface-variant);
+  border-radius: var(--radius-base);
+  flex: 1 1 0;
+  align-items: stretch;
 }
 
 .create-exercise-form legend {
@@ -10,12 +22,11 @@
 
 .create-exercise-form fieldset {
   display: flex;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-md);
   padding: var(--spacing-md);
   border-radius: var(--radius-base);
   border: 1px solid var(--color-border);
   flex-wrap: wrap;
-  flex: 1;
 }
 
 .form-footer {
@@ -29,7 +40,6 @@
 .form-footer > :first-child {
   display: flex;
   gap: var(--spacing-lg);
-  flex: 1;
 }
 
 /*SIDEBAR STYLING*/
@@ -38,25 +48,23 @@
   display: flex;
   flex-direction: column;
   flex: 0 0 360px;
-  border-radius: var(--radius-base);
   padding: var(--spacing-md);
-  background-color: transparent;
-  border: 1px solid var(--color-border);
   gap: var(--spacing-md);
-  overflow-y: auto;
+  background-color: var(--color-surface-variant);
+  border-radius: var(--radius-base);
+  height: 100%;
+  align-items: stretch;
 }
 
 .user-wrapper {
   display: flex;
   align-items: center;
   gap: var(--spacing-lg);
-  flex: 1;
 }
 
 @media (max-width: 900px) {
   .create-exercise-sidebar {
     flex: 1;
-    overflow: hidden;
   }
 }
 

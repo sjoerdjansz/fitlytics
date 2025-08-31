@@ -49,15 +49,9 @@ export function Table({ data }) {
       render: true,
     },
     {
-      name: "Load score",
+      name: "Load",
       label: "systemicLoad",
       sortable: true,
-      render: true,
-    },
-    {
-      name: "Edit",
-      label: "edit",
-      sortable: false,
       render: true,
     },
   ];
@@ -105,48 +99,52 @@ export function Table({ data }) {
   }, [exercises, sortDirection, sortType]);
 
   return (
-    <table>
-      <thead>
-        <tr>
-          {TABLE_HEADERS.map((item) => {
-            if (item.render) {
-              return (
-                <th
-                  key={item.label}
-                  onClick={
-                    item.sortable ? () => getSortValues(item.label) : undefined
-                  }
-                >
-                  <span className={styles["th-content"]}>
-                    {item.name}
-                    {item.sortable && <CaretUpDown size={16} />}
-                  </span>
-                </th>
-              );
-            }
-          })}
-        </tr>
-      </thead>
-      <tbody>
+    <>
+      <ul className={styles["exercises-list__header"]}>
+        {TABLE_HEADERS.map((item) => {
+          if (item.render) {
+            return (
+              <li
+                className={styles["exercises-list__header-item"]}
+                key={item.label}
+                onClick={
+                  item.sortable ? () => getSortValues(item.label) : undefined
+                }
+              >
+                <span className={styles["exercises-list__header-content"]}>
+                  {item.name}
+                  {item.sortable && <CaretUpDown size={16} />}
+                </span>
+              </li>
+            );
+          }
+        })}
+      </ul>
+      <ul className={styles["exercises-list__content"]}>
         {exercises.length > 0 &&
           sortedData.map((item) => {
             return (
-              <tr key={item.id}>
-                <td>{item.name}</td>
-                <td>{item.bodyPart}</td>
-                <td>{item.primaryMuscle}</td>
-                <td>{item.secondaryMuscles.join(", ")}</td>
-                <td>{item.movement}</td>
-                <td>{item.systemicLoad}</td>
-                <td className={styles["edit-exercise"]}>
-                  <div>
-                    <DotsThreeVertical size={30} />
-                  </div>
-                </td>
-              </tr>
+              <li
+                className={styles["exercises-list__content-item"]}
+                key={item.id}
+              >
+                <div data-label={TABLE_HEADERS[0].name}>{item.name}</div>
+                <div data-label={TABLE_HEADERS[1].name}>{item.bodyPart}</div>
+                <div data-label={TABLE_HEADERS[2].name}>
+                  {item.primaryMuscle}
+                </div>
+                <div data-label={TABLE_HEADERS[3].name}>
+                  {item.secondaryMuscles.join(", ") || "–"}
+                </div>
+
+                <div data-label={TABLE_HEADERS[5].name}>{item.movement}</div>
+                <div data-label={TABLE_HEADERS[6].name}>
+                  {item.systemicLoad}
+                </div>
+              </li>
             );
           })}
-      </tbody>
-    </table>
+      </ul>
+    </>
   );
 }

@@ -1,7 +1,7 @@
 .page-controls {
   display: flex;
-  padding: var(--spacing-md);
   gap: var(--spacing-md);
+  padding: var(--spacing-md) 0;
   align-items: center;
   flex-wrap: wrap;
 }

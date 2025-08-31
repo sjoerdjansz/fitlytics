@@ -6,9 +6,9 @@ export function Layout() {
   return (
     <div className={styles["layout-container"]}>
       <Navbar />
-      <main className={styles["layout-content"]}>
+      <div className={styles["layout-content"]}>
         <Outlet />
-      </main>
+      </div>
     </div>
   );
 }

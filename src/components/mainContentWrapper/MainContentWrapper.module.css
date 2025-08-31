@@ -1,9 +1,0 @@
-.main-content {
-  display: flex;
-  flex-direction: column;
-  padding: var(--spacing-md);
-  background-color: var(--color-surface-variant);
-  border-radius: var(--radius-base);
-  overflow: auto;
-  flex: 1;
-}

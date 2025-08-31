@@ -9,7 +9,7 @@
   --color-bg: #f9fafb; /* diepe grijsblauw basis */
   --color-surface: #ffffff; /* iets lichter voor kaarten/panelen */
   --color-surface-variant: #f2f4f7; /* subtiel contrastvlak */
-  --color-border: #d1d5db; /* zachte grijs voor randen */
+  --color-border: #d7d9e0; /* zachte grijs voor randen */
 
   /* Text Colors */
   --color-text-primary: #111827; /* bijna-wit, niet fel */
@@ -71,7 +71,7 @@
 
 html {
   font-family: "Inter", sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   background-color: var(--color-bg);
   color: var(--color-text-primary);
 }

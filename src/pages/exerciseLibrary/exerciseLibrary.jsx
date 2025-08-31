@@ -4,7 +4,6 @@ import { EXERCISES } from "../../constants/exercises.js";
 import { Table } from "../../components/Table/Table.jsx";
 import { Button } from "../../components/button/Button.jsx";
 import { InputField } from "../../components/inputFields/InputField.jsx";
-import { MainContentWrapper } from "../../components/mainContentWrapper/MainContentWrapper.jsx";
 import { PageControls } from "../../components/pageControls/PageControls.jsx";
 import { SelectField } from "../../components/selectField/SelectField.jsx";
 import { InputWrapper } from "../../components/InputWrapper/InputWrapper.jsx";
@@ -66,9 +65,7 @@ export function ExerciseLibrary() {
           />
         </InputWrapper>
       </PageControls>
-      <MainContentWrapper>
-        <Table data={EXERCISES} />
-      </MainContentWrapper>
+      <Table data={EXERCISES} />
     </MainContentCard>
   );
 }

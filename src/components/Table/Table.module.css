@@ -1,44 +1,58 @@
-table {
-  height: 100%;
-  width: 100%;
-  border-spacing: 0;
-  border-collapse: separate;
-  font-size: var(--font-size-small);
-}
+/* LIST HEADER */
 
-thead {
-  text-align: left;
-  font-weight: 500;
-  color: var(--color-text-secondary);
-  background-color: var(--color-surface);
-}
-
-th,
-td {
+.exercises-list__header {
+  display: grid;
+  grid-template-columns: 1fr 120px 1fr 1fr 1fr 80px;
+  grid-template-rows: 1fr;
+  grid-gap: var(--spacing-sm);
+  background-color: var(--color-surface-variant);
   padding: var(--spacing-md);
-  /*white-space: nowrap;*/
+  border-top: 1px solid var(--color-border);
+  border-left: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+  border-radius: var(--radius-base) var(--radius-base) 0 0;
 }
 
-thead tr:first-child th:first-child {
-  border-top-left-radius: var(--radius-base);
+.exercises-list__header-item {
+  display: flex;
+  font-weight: 600;
 }
 
-thead tr:first-child th:last-child {
-  border-top-right-radius: var(--radius-base);
+.exercises-list__header-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
 }
 
-/* lijn onder elke rij ! werkte niet op tr dus op td*/
-table tbody td {
+.exercises-list__header-content > :last-child {
+  cursor: pointer;
+}
+
+/* LIST CONTENT */
+
+.exercises-list__content {
+  display: block;
+  border: 1px solid var(--color-border);
+}
+
+.exercises-list__content-item {
+  display: grid;
+  grid-template-columns: 1fr 120px 1fr 1fr 1fr 80px;
+  grid-template-rows: 1fr;
+  gap: var(--spacing-md);
+  text-transform: capitalize;
+  padding: var(--spacing-md);
+  align-items: center;
   border-bottom: 1px solid var(--color-border);
 }
 
-td {
-  text-transform: capitalize;
-  color: var(--color-text-primary);
+.exercises-list__content-item:hover {
+  background-color: var(--color-bg);
+  cursor: pointer;
 }
 
-tbody tr:hover {
-  background-color: var(--color-bg);
+.exercises-list__content-item:last-child {
+  border-bottom: none;
 }
 
 .th-content {
@@ -56,4 +70,40 @@ tbody tr:hover {
 
 .edit-exercise {
   cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .exercises-list__header {
+    display: none;
+  }
+
+  .exercises-list__content-item {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: var(--spacing-sm);
+    text-transform: capitalize;
+    padding: var(--spacing-md);
+    align-items: center;
+  }
+
+  .exercises-list__content {
+    border-radius: var(--radius-base);
+  }
+
+  .exercises-list__content-item > div {
+    display: flex;
+    gap: var(--spacing-sm);
+  }
+
+  .exercises-list__content-item > div::before {
+    flex: 0 1 100px;
+    content: attr(data-label);
+    display: block;
+    color: var(--color-text-secondary);
+  }
+
+  .exercise-name {
+    font-weight: 600;
+  }
 }

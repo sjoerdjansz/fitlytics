@@ -1,6 +1,5 @@
 import styles from "./ExerciseCreate.module.css";
 import { MainContentCard } from "../../components/mainContentCard/MainContentCard.jsx";
-import { MainContentWrapper } from "../../components/mainContentWrapper/MainContentWrapper.jsx";
 import { InputWrapper } from "../../components/InputWrapper/InputWrapper.jsx";
 import { InputField } from "../../components/inputFields/InputField.jsx";
 import { SelectField } from "../../components/selectField/SelectField.jsx";
@@ -23,10 +22,17 @@ export function ExerciseCreate() {
   return (
     <MainContentCard
       title="Create new exercise"
+      actions={
+        <Button
+          type="button"
+          label="Delete exercise"
+          size="md"
+          variant="destructive-cta"
+        />
+      }
       flexDirection="row"
-      actions={"een of andere message component"}
     >
-      <MainContentWrapper>
+      <div className={styles.testdiv}>
         <form action="" className={styles["create-exercise-form"]}>
           <fieldset className={styles["create-exercise-form__info"]}>
             <legend>Information</legend>
@@ -181,56 +187,54 @@ export function ExerciseCreate() {
                 variant="tertiary-cta"
               />
             </div>
-            <Button
-              type="button"
-              label="Delete exercise"
-              size="md"
-              variant="destructive-cta"
-            />
           </div>
         </form>
-      </MainContentWrapper>
-      <aside className={styles["create-exercise-sidebar"]}>
-        <Card flexDirection="row" background={"surface"}>
-          <div className={styles["user-wrapper"]}>
-            <Avatar
-              size={50}
-              alt="sjoerd"
-              image={profilePicture}
-              position="top"
-            />
-            <p>Created by Sjoerd</p>
-          </div>
-        </Card>
-        <Card flexDirection="column" background={"surface"} defaultOpen={false}>
-          <Card.Header title="Secondary muscles" toggle></Card.Header>
-          <Card.Body>
-            <ul className={styles["muscles-list"]}>
-              {TEMP_MUSCLES.map((item) => (
-                <li key={item}>
-                  {item}
-                  <TrashSimple size={16} color={"red"} />
-                </li>
-              ))}
-            </ul>
-          </Card.Body>
-        </Card>
-        <Card flexDirection="column" background={"surface"}>
-          <Card.Header title="Joints" toggle></Card.Header>
-          <Card.Body>Body</Card.Body>
-          <Card.Footer>Footer</Card.Footer>
-        </Card>
-        <Card flexDirection="column" background={"surface"}>
-          <Card.Header title="Body part" toggle></Card.Header>
-          <Card.Body>
-            <img
-              className={styles.hamstrings}
-              src={hamstrings}
-              alt="hamstrings"
-            />
-          </Card.Body>
-        </Card>
-      </aside>
+        <aside className={styles["create-exercise-sidebar"]}>
+          <Card background={"surface"}>
+            <div className={styles["user-wrapper"]}>
+              <Avatar
+                size={50}
+                alt="sjoerd"
+                image={profilePicture}
+                position="top"
+              />
+              <p>Created by Sjoerd</p>
+            </div>
+          </Card>
+          <Card
+            flexDirection="column"
+            background={"surface"}
+            defaultOpen={false}
+          >
+            <Card.Header title="Secondary muscles" toggle></Card.Header>
+            <Card.Body>
+              <ul className={styles["muscles-list"]}>
+                {TEMP_MUSCLES.map((item) => (
+                  <li key={item}>
+                    {item}
+                    <TrashSimple size={16} color={"red"} />
+                  </li>
+                ))}
+              </ul>
+            </Card.Body>
+          </Card>
+          <Card flexDirection="column" background={"surface"}>
+            <Card.Header title="Joints" toggle></Card.Header>
+            <Card.Body>Body</Card.Body>
+            <Card.Footer>Footer</Card.Footer>
+          </Card>
+          <Card flexDirection="column" background={"surface"}>
+            <Card.Header title="Body part" toggle></Card.Header>
+            <Card.Body>
+              <img
+                className={styles.hamstrings}
+                src={hamstrings}
+                alt="hamstrings"
+              />
+            </Card.Body>
+          </Card>
+        </aside>
+      </div>
     </MainContentCard>
   );
 }
