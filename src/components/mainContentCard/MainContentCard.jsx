@@ -5,6 +5,7 @@ export function MainContentCard({
   children,
   actions,
   flexDirection = "column",
+  alignItems = "flex-start",
 }) {
   return (
     <section className={styles["main-content-card"]}>
@@ -12,7 +13,10 @@ export function MainContentCard({
         <h1 className={styles.title}>{title}</h1>
         {actions && <div className={styles["actions"]}>{actions}</div>}
       </header>
-      <main className={`${styles["main"]} ${styles[flexDirection]}`}>
+      <main
+        className={`${styles.main} ${styles[flexDirection]}`}
+        style={{ alignItems }}
+      >
         {children}
       </main>
     </section>

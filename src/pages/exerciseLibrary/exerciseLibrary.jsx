@@ -8,25 +8,7 @@ import { PageControls } from "../../components/pageControls/PageControls.jsx";
 import { SelectField } from "../../components/selectField/SelectField.jsx";
 import { InputWrapper } from "../../components/InputWrapper/InputWrapper.jsx";
 import { useNavigate } from "react-router-dom";
-
-const EXERCISE_FILTER_OPTIONS = [
-  {
-    value: "filter-exercises",
-    name: "Filter exercises",
-  },
-  {
-    value: "bodypart",
-    name: "Body part",
-  },
-  {
-    value: "primary-muscle",
-    name: "Primary muscle",
-  },
-  {
-    value: "movement",
-    name: "Movement",
-  },
-];
+import { DUMMY_FILTER_OPTIONS } from "../../constants/tempMuscles.js";
 
 export function ExerciseLibrary() {
   const navigate = useNavigate();
@@ -35,6 +17,7 @@ export function ExerciseLibrary() {
     <MainContentCard
       title="exercise library"
       flexDirection="column"
+      alignItems="stretch"
       actions={
         <Button
           variant="primary-cta"
@@ -60,7 +43,7 @@ export function ExerciseLibrary() {
           <SelectField
             name="type"
             id="exercise-type"
-            options={EXERCISE_FILTER_OPTIONS}
+            options={DUMMY_FILTER_OPTIONS}
             direction="row"
           />
         </InputWrapper>

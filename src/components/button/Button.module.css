@@ -6,7 +6,7 @@
   padding: var(--spacing-sm) var(--spacing-lg);
   border: none;
   border-radius: var(--radius-small);
-  box-shadow: var(--shadow-subtle);
+  box-shadow: var(--shadow-very-subtle);
   white-space: nowrap;
   width: auto;
   cursor: pointer;
@@ -60,6 +60,7 @@
 .tertiary-cta {
   background-color: transparent;
   box-shadow: none;
+  color: var(--color-text-primary);
 }
 
 .tertiary-cta:hover {

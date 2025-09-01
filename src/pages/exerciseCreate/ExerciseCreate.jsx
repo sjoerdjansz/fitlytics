@@ -14,7 +14,10 @@ import profilePicture from "../../assets/profile-picture-sjoerd.jpg";
 import hamstrings from "../../assets/bodyparts/hamstrings.svg";
 import { Avatar } from "../../components/avatar/Avatar.jsx";
 import { Card } from "../../components/uiCard/Card.jsx";
-import { TEMP_MUSCLES } from "../../constants/tempMuscles.js";
+import {
+  DUMMY_FILTER_OPTIONS,
+  TEMP_MUSCLES,
+} from "../../constants/tempMuscles.js";
 
 export function ExerciseCreate() {
   const [systemicLoad, setSystemicLoad] = useState("");
@@ -31,10 +34,11 @@ export function ExerciseCreate() {
         />
       }
       flexDirection="row"
+      alignItems="flex-start"
     >
-      <div className={styles.testdiv}>
+      <div className={styles["create-exercise"]}>
         <form action="" className={styles["create-exercise-form"]}>
-          <fieldset className={styles["create-exercise-form__info"]}>
+          <fieldset>
             <legend>Information</legend>
             <InputWrapper
               direction="column"
@@ -59,8 +63,7 @@ export function ExerciseCreate() {
               <SelectField
                 name="body part"
                 id="body-part"
-                label="Body part"
-                options={[]}
+                options={DUMMY_FILTER_OPTIONS}
                 required={true}
               />
             </InputWrapper>
@@ -73,8 +76,7 @@ export function ExerciseCreate() {
               <SelectField
                 name="movement"
                 id="movement"
-                label="Movement"
-                options={[]}
+                options={DUMMY_FILTER_OPTIONS}
                 required={true}
               />
             </InputWrapper>
@@ -91,8 +93,7 @@ export function ExerciseCreate() {
               <SelectField
                 name="primary muscle"
                 id="primary-muscle"
-                label="Primary muscle"
-                options={[]}
+                options={DUMMY_FILTER_OPTIONS}
                 required={true}
               />
             </InputWrapper>
@@ -105,8 +106,7 @@ export function ExerciseCreate() {
               <SelectField
                 name="secondary muscles"
                 id="secondary-muscles"
-                label="Secondary muscles"
-                options={[]}
+                options={DUMMY_FILTER_OPTIONS}
                 required={true}
               />
             </InputWrapper>
@@ -119,8 +119,7 @@ export function ExerciseCreate() {
               <SelectField
                 name="Joints"
                 id="joints"
-                label="Joints"
-                options={[]}
+                options={DUMMY_FILTER_OPTIONS}
               />
             </InputWrapper>
           </fieldset>
@@ -173,24 +172,26 @@ export function ExerciseCreate() {
             </InputWrapper>
           </fieldset>
           <div className={styles["form-footer"]}>
-            <div>
-              <Button
-                type="submit"
-                label="Create exercise"
-                size="md"
-                variant="success-cta"
-              />
-              <Button
-                type="button"
-                label="Cancel"
-                size="md"
-                variant="tertiary-cta"
-              />
-            </div>
+            <Button
+              type="submit"
+              label="Create exercise"
+              size="md"
+              variant="success-cta"
+            />
+            <Button
+              type="button"
+              label="Cancel"
+              size="md"
+              variant="tertiary-cta"
+            />
           </div>
         </form>
         <aside className={styles["create-exercise-sidebar"]}>
-          <Card background={"surface"}>
+          <Card
+            flexDirection="column"
+            background={"surface"}
+            defaultOpen={true}
+          >
             <div className={styles["user-wrapper"]}>
               <Avatar
                 size={50}
@@ -204,34 +205,80 @@ export function ExerciseCreate() {
           <Card
             flexDirection="column"
             background={"surface"}
-            defaultOpen={false}
+            defaultOpen={true}
           >
-            <Card.Header title="Secondary muscles" toggle></Card.Header>
-            <Card.Body>
-              <ul className={styles["muscles-list"]}>
-                {TEMP_MUSCLES.map((item) => (
-                  <li key={item}>
-                    {item}
-                    <TrashSimple size={16} color={"red"} />
-                  </li>
-                ))}
-              </ul>
-            </Card.Body>
+            {({ open, setOpen }) => (
+              <>
+                <Card.Header
+                  open={open}
+                  setOpen={setOpen}
+                  title="Secondary muscles"
+                  toggle
+                ></Card.Header>
+                <Card.Body open={open}>
+                  <ul className={styles["muscles-list"]}>
+                    {TEMP_MUSCLES.map((item) => (
+                      <li key={item}>
+                        {item}
+                        <TrashSimple size={16} color="#f44336" />
+                      </li>
+                    ))}
+                  </ul>
+                </Card.Body>
+              </>
+            )}
           </Card>
-          <Card flexDirection="column" background={"surface"}>
-            <Card.Header title="Joints" toggle></Card.Header>
-            <Card.Body>Body</Card.Body>
-            <Card.Footer>Footer</Card.Footer>
+          <Card
+            flexDirection="column"
+            background={"surface"}
+            defaultOpen={true}
+          >
+            {({ open, setOpen }) => (
+              <>
+                <Card.Header
+                  open={open}
+                  setOpen={setOpen}
+                  title="Joints"
+                  toggle
+                ></Card.Header>
+                <Card.Body open={open}>
+                  <ul className={styles["joints-list"]}>
+                    {["Glenohumeral", "Olecranon"].map((item) => (
+                      <li key={item}>
+                        {item}
+                        <TrashSimple size={16} color="#f44336" />
+                      </li>
+                    ))}
+                  </ul>
+                </Card.Body>
+                <Card.Footer open={open}>
+                  I am a card footer, woohoo
+                </Card.Footer>
+              </>
+            )}
           </Card>
-          <Card flexDirection="column" background={"surface"}>
-            <Card.Header title="Body part" toggle></Card.Header>
-            <Card.Body>
-              <img
-                className={styles.hamstrings}
-                src={hamstrings}
-                alt="hamstrings"
-              />
-            </Card.Body>
+          <Card
+            flexDirection="column"
+            background={"surface"}
+            defaultOpen={true}
+          >
+            {({ open, setOpen }) => (
+              <>
+                <Card.Header
+                  open={open}
+                  setOpen={setOpen}
+                  title="Body part"
+                  toggle
+                ></Card.Header>
+                <Card.Body open={open}>
+                  <img
+                    className={styles.hamstrings}
+                    src={hamstrings}
+                    alt="hamstrings"
+                  />
+                </Card.Body>
+              </>
+            )}
           </Card>
         </aside>
       </div>

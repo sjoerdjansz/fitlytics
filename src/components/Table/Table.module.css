@@ -44,6 +44,7 @@
   padding: var(--spacing-md);
   align-items: center;
   border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
 }
 
 .exercises-list__content-item:hover {

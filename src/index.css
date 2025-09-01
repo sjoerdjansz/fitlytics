@@ -6,15 +6,25 @@
 
 :root {
   /* Base Colors (mid-tone neutral) */
-  --color-bg: #f9fafb; /* diepe grijsblauw basis */
-  --color-surface: #ffffff; /* iets lichter voor kaarten/panelen */
-  --color-surface-variant: #f2f4f7; /* subtiel contrastvlak */
-  --color-border: #d7d9e0; /* zachte grijs voor randen */
+  /*--color-bg: #f9fafb; !* diepe grijsblauw basis *!*/
+  /*--color-surface: #f9f9fc; !* iets lichter voor kaarten/panelen *!*/
+  /*--color-surface-variant: #f2f4f7; !* subtiel contrastvlak *!*/
+  /*--color-border: #dddee1; !* zachte grijs voor randen *!*/
 
   /* Text Colors */
-  --color-text-primary: #111827; /* bijna-wit, niet fel */
-  --color-text-secondary: #6b7280; /* koel grijsblauw */
-  --color-text-disabled: rgba(107, 114, 128, 0.6);
+  /*--color-text-primary: #111827; !* bijna-wit, niet fel *!*/
+  /*--color-text-secondary: #6b7280; !* koel grijsblauw *!*/
+  /*--color-text-disabled: rgba(107, 114, 128, 0.6);*/
+
+  --color-bg: #1e1f25; /* donkere grijsblauw basis */
+  --color-surface: #252730; /* iets lichter voor kaarten/panelen */
+  --color-surface-variant: #2e313c; /* subtiel contrastvlak */
+  --color-border: #3a3d47; /* zachte grijsblauw voor randen */
+
+  /* Text */
+  --color-text-primary: #f3f4f6; /* bijna-wit, niet fel */
+  --color-text-secondary: #9ca3af; /* koel grijsblauw */
+  --color-text-disabled: rgba(156, 163, 175, 0.6); /* iets transparant */
 
   /* Error (rood, waarschuwing/feedback) */
   --color-error: #f44336;
@@ -41,10 +51,27 @@
   --color-accent-secondary-disabled: rgba(245, 158, 11, 0.4);
 
   /* Subtiele schaduw (cards, knoppen, kleine UI) */
-  --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.08), 0 1px 1px rgba(0, 0, 0, 0.06);
+  /*--shadow-very-subtle: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;*/
+  /*--shadow-subtle:*/
+  /*  rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;*/
+
+  /*!* Normale schaduw (modals, dropdowns, overlays) *!*/
+  /*--shadow-normal:*/
+  /*  rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;*/
+  /*--shadow-sublte-wide: rgba(149, 157, 165, 0.2) 0px 8px 24px;*/
+
+  /* Subtiele schaduw (cards, knoppen, kleine UI) */
+  --shadow-very-subtle: rgba(255, 255, 255, 0.02) 0px 1px 2px 0px; /* lichte zweem */
+  --shadow-subtle:
+    rgba(0, 0, 0, 0.25) 0px 1px 2px 0px,
+    rgba(255, 255, 255, 0.04) 0px 1px 1px 0px; /* mix van donker + licht */
 
   /* Normale schaduw (modals, dropdowns, overlays) */
-  --shadow-normal: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.08);
+  --shadow-normal:
+    rgba(0, 0, 0, 0.35) 0px 4px 8px -2px,
+    rgba(255, 255, 255, 0.05) 0px 2px 2px 0px; /* donkere depth + subtiel randje */
+  --shadow-subtle-wide:
+    rgba(0, 0, 0, 0.4) 0px 8px 24px, rgba(0, 0, 0, 0.2) 0px 4px 12px; /* diepe maar zachte spread */
 
   /* Typography */
   --font-mono: "Fira Code", "JetBrains Mono", monospace;

@@ -1,7 +1,6 @@
 import styles from "./Card.module.css";
-import { useContext, useMemo, useState } from "react";
 import { CaretDown, CaretUp } from "@phosphor-icons/react";
-import { CardContext } from "./CardContext.js";
+import { useState } from "react";
 
 export function Card({
   children,
@@ -10,14 +9,6 @@ export function Card({
   defaultOpen = true,
 }) {
   const [open, setOpen] = useState(defaultOpen);
-
-  const contextValue = useMemo(
-    () => ({
-      open,
-      setOpen,
-    }),
-    [open],
-  );
 
   const BACKGROUNDS = {
     surface: "surface",
@@ -35,22 +26,23 @@ export function Card({
         backgroundColor: `var(--color-${bg})`,
       }}
     >
-      <CardContext.Provider value={contextValue}>
-        {children}
-      </CardContext.Provider>
+      {typeof children === "function"
+        ? children({
+            open,
+            setOpen,
+          })
+        : children}
     </article>
   );
 }
 
-Card.Header = function CardHeader({ children, title, toggle = true }) {
-  const context = useContext(CardContext);
-  // TODO: fast-refresh doet gek en deze workaround helpt tijdens development.
-  // Wellicht moet ik uiteindelijk de body,header,footer aparte components geven om rendering en referenties
-  // te verbeteren. let op er staan er 3 in deze file
-  if (!context) return null;
-
-  const { open, setOpen } = context;
-
+Card.Header = function CardHeader({
+  children,
+  title,
+  toggle = true,
+  open,
+  setOpen,
+}) {
   return (
     <div className={styles.header}>
       {title && <p>{title}</p>}
@@ -61,22 +53,19 @@ Card.Header = function CardHeader({ children, title, toggle = true }) {
           type="button"
           onClick={() => setOpen(!open)}
         >
-          {open ? <CaretDown size={20} /> : <CaretUp size={20} />}
+          {open ? (
+            <CaretDown size={20} color={"white"} />
+          ) : (
+            <CaretUp size={20} color={"white"} />
+          )}
         </button>
       )}
     </div>
   );
 };
 
-Card.Body = function CardBody({ children }) {
-  const context = useContext(CardContext);
-  if (!context) return null;
-
-  const { open } = context;
-
-  if (!open) {
-    return null;
-  }
+Card.Body = function CardBody({ children, open }) {
+  if (!open) return null;
 
   return (
     <div hidden={!open} className={styles.body}>
@@ -85,15 +74,8 @@ Card.Body = function CardBody({ children }) {
   );
 };
 
-Card.Footer = function CardFooter({ children, hideWhenClosed = true }) {
-  const context = useContext(CardContext);
-  if (!context) return null;
-
-  const { open } = context;
-
-  if (hideWhenClosed && !open) {
-    return null;
-  }
+Card.Footer = function CardFooter({ children, open }) {
+  if (!open) return null;
   return (
     <div hidden={!open} className={styles.footer}>
       {children}

@@ -1,20 +1,19 @@
 .main-content-card {
   display: flex;
   flex-direction: column;
+  flex: 1;
+  min-height: 0;
   overflow: hidden;
-  height: 100%;
 }
 
 .main {
-  /*display: flex;*/
-  /*padding: var(--spacing-md);*/
-  /*overflow: auto;*/
   display: flex;
   flex: 1 1 auto;
   min-height: 0;
   align-items: stretch;
   padding: var(--spacing-md);
   overflow: auto;
+  box-shadow: var(--shadow-normal);
 }
 
 .header {

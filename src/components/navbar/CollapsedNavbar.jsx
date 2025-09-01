@@ -27,7 +27,7 @@ export function CollapsedNavbar({ toggleNav }) {
                   <NavLink
                     to={item.path}
                     className={({ isActive }) =>
-                      isActive ? styles.selected : ""
+                      isActive ? styles.selected : styles.deselected
                     }
                   >
                     <span className={styles["nav-icon"]}>

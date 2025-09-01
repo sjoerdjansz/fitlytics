@@ -1,82 +1,96 @@
-.testdiv {
+.create-exercise {
   display: flex;
-  flex-direction: row;
-  gap: 1rem;
-  background-color: red;
+  justify-content: space-between;
   flex: 1;
+  padding: var(--spacing-md);
+  min-width: 0;
+  gap: var(--spacing-xl);
 }
 
 .create-exercise-form {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
+  flex: 0 1 820px;
   background-color: var(--color-surface-variant);
-  border-radius: var(--radius-base);
-  flex: 1 1 0;
-  align-items: stretch;
+  padding: var(--spacing-md);
+  border-radius: var(--radius-small);
+  height: 100%;
+  box-shadow: var(--shadow-subtle);
 }
 
-.create-exercise-form legend {
-  font-weight: 600;
-}
-
-.create-exercise-form fieldset {
+.create-exercise-form > fieldset {
   display: flex;
   gap: var(--spacing-md);
   padding: var(--spacing-md);
-  border-radius: var(--radius-base);
-  border: 1px solid var(--color-border);
+  border: 0;
+  margin: 0;
   flex-wrap: wrap;
+}
+
+legend {
+  font-weight: 600;
+}
+
+.create-exercise-form > fieldset:last-of-type {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
 }
 
 .form-footer {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: var(--spacing-md);
-  flex-wrap: wrap;
-}
-
-.form-footer > :first-child {
-  display: flex;
   gap: var(--spacing-lg);
+  padding: var(--spacing-md);
 }
 
-/*SIDEBAR STYLING*/
+/* sidebar */
 
 .create-exercise-sidebar {
   display: flex;
+  flex: 0 0 280px;
   flex-direction: column;
-  flex: 0 0 360px;
-  padding: var(--spacing-md);
   gap: var(--spacing-md);
   background-color: var(--color-surface-variant);
-  border-radius: var(--radius-base);
-  height: 100%;
-  align-items: stretch;
+  padding: var(--spacing-md);
+  border-radius: var(--radius-small);
+  box-shadow: var(--shadow-subtle);
+  /* TODO: ik twijfel wat handig is, geen height (of auto) of fit content,
+  later bepalen wat beter in de ui/ux past*/
+  height: fit-content;
 }
 
 .user-wrapper {
   display: flex;
   align-items: center;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-md);
 }
 
-@media (max-width: 900px) {
-  .create-exercise-sidebar {
-    flex: 1;
-  }
-}
-
-/* temp styling stuff*/
-
-.muscles-list > li {
+.muscles-list,
+.joints-list {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.muscles-list > li,
+.joints-list > li {
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 .hamstrings {
+  width: 60%;
   align-self: center;
-  width: 75%;
+}
+
+@media (max-width: 900px) {
+  .create-exercise {
+    flex-direction: column;
+    align-self: auto;
+    width: 100%;
+  }
 }
