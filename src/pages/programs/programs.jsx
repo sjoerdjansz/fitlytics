@@ -1,12 +1,13 @@
-import { MainContentCard } from "../components/mainContentCard/MainContentCard.jsx";
-import { PageControls } from "../components/pageControls/PageControls.jsx";
-import { Button } from "../components/button/Button.jsx";
-import { InputWrapper } from "../components/InputWrapper/InputWrapper.jsx";
-import { InputField } from "../components/inputFields/InputField.jsx";
-import { SelectField } from "../components/selectField/SelectField.jsx";
-import { DUMMY_FILTER_OPTIONS } from "../constants/tempMuscles.js";
-import { Table } from "../components/Table/Table.jsx";
-import { PROGRAMS } from "../constants/programs.js";
+import { MainContentCard } from "../../components/mainContentCard/MainContentCard.jsx";
+import { PageControls } from "../../components/pageControls/PageControls.jsx";
+import { Button } from "../../components/button/Button.jsx";
+import { InputWrapper } from "../../components/InputWrapper/InputWrapper.jsx";
+import { InputField } from "../../components/inputFields/InputField.jsx";
+import { SelectField } from "../../components/selectField/SelectField.jsx";
+import { DUMMY_FILTER_OPTIONS } from "../../constants/tempMuscles.js";
+import { Table } from "../../components/table/Table.jsx";
+import { PROGRAMS } from "../../constants/programs.js";
+import { ROUTES } from "../../constants/routes.jsx";
 
 export function Programs() {
   const programTableHeaders = [
@@ -65,11 +66,16 @@ export function Programs() {
 
   const gridColSettings = ["2fr", "1fr", "1fr", "1fr", "1fr", "1fr"];
 
+  const libraryChildrenRoutes = ROUTES.find((item) => {
+    return item.name === "library";
+  });
+
   return (
     <MainContentCard
       title="programs"
       flexDirection="column"
       alignItems="stretch"
+      urls={libraryChildrenRoutes}
       actions={
         <Button
           variant="primary-cta"

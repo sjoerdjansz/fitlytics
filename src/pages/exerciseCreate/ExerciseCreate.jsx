@@ -7,7 +7,7 @@ import { Textarea } from "../../components/inputFields/Textarea.jsx";
 import { Info, TrashSimple } from "@phosphor-icons/react";
 import { RangeSlider } from "../../components/inputFields/RangeSlider.jsx";
 import { useState } from "react";
-import { Tooltip } from "../../components/Tooltip/Tooltip.jsx";
+import { Tooltip } from "../../components/tooltip/Tooltip.jsx";
 import { Button } from "../../components/button/Button.jsx";
 
 import profilePicture from "../../assets/profile-picture-sjoerd.jpg";

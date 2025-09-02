@@ -1,20 +1,23 @@
-import styles from "./ExerciseLibrary.module.css";
+import styles from "./workouts.module.css";
 import { MainContentCard } from "../../components/mainContentCard/MainContentCard.jsx";
-import { EXERCISES } from "../../constants/exercises.js";
-import { Table } from "../../components/table/Table.jsx";
-import { Button } from "../../components/button/Button.jsx";
-import { InputField } from "../../components/inputFields/InputField.jsx";
 import { PageControls } from "../../components/pageControls/PageControls.jsx";
-import { SelectField } from "../../components/selectField/SelectField.jsx";
+import { Button } from "../../components/button/Button.jsx";
 import { InputWrapper } from "../../components/InputWrapper/InputWrapper.jsx";
-import { useNavigate } from "react-router-dom";
+import { InputField } from "../../components/inputFields/InputField.jsx";
+import { SelectField } from "../../components/selectField/SelectField.jsx";
+import { Table } from "../../components/table/Table.jsx";
 import { DUMMY_FILTER_OPTIONS } from "../../constants/tempMuscles.js";
+import { WORKOUTS } from "../../constants/workouts.js";
 import { ROUTES } from "../../constants/routes.jsx";
 
-export function ExerciseLibrary() {
-  const navigate = useNavigate();
-
-  const exerciseTableHeaders = [
+export function Workouts() {
+  const workoutTableHeaders = [
+    {
+      name: "ID",
+      label: "id",
+      sortable: true,
+      render: false,
+    },
     {
       name: "Name",
       label: "name",
@@ -22,42 +25,32 @@ export function ExerciseLibrary() {
       render: true,
     },
     {
-      name: "Body part",
-      label: "bodyPart",
+      name: "Type",
+      label: "type",
       sortable: true,
       render: true,
     },
     {
-      name: "Primary",
-      label: "primaryMuscle",
-      sortable: true,
-      render: true,
-    },
-    {
-      name: "Secondary",
-      label: "secondaryMuscles",
+      name: "Exercises",
+      label: "exercises",
       sortable: false,
       render: true,
     },
     {
-      name: "Joints",
-      label: "primaryJoints",
+      name: "Programs",
+      label: "programs",
       sortable: false,
-      render: false,
-    },
-    {
-      name: "Movement",
-      label: "movement",
-      sortable: true,
       render: true,
     },
     {
-      name: "Load",
-      label: "systemicLoad",
-      sortable: true,
+      name: "Assigned to",
+      label: "assignedTo",
+      sortable: false,
       render: true,
     },
   ];
+
+  const gridColSettings = ["1.5fr", "1fr", "1fr", "1fr", "2fr"];
 
   const libraryChildrenRoutes = ROUTES.find((item) => {
     return item.name === "library";
@@ -65,7 +58,7 @@ export function ExerciseLibrary() {
 
   return (
     <MainContentCard
-      title="exercise library"
+      title="workouts"
       flexDirection="column"
       alignItems="stretch"
       urls={libraryChildrenRoutes}
@@ -74,10 +67,7 @@ export function ExerciseLibrary() {
           variant="primary-cta"
           type="button"
           size="md"
-          label="Add new exercise"
-          onClick={() => {
-            navigate("create");
-          }}
+          label="Create workout"
         />
       }
     >
@@ -85,11 +75,12 @@ export function ExerciseLibrary() {
         <InputWrapper width="md" direction="row">
           <InputField
             type="text"
-            id="search-exercise"
-            placeholder="Search exercise"
+            id="search-workout"
+            placeholder="Search workout"
             name="search-exercise"
           />
         </InputWrapper>
+
         <InputWrapper width="md" direction="row">
           <SelectField
             name="type"
@@ -99,7 +90,11 @@ export function ExerciseLibrary() {
           />
         </InputWrapper>
       </PageControls>
-      <Table data={EXERCISES} headers={exerciseTableHeaders} />
+      <Table
+        data={WORKOUTS}
+        headers={workoutTableHeaders}
+        gridColumns={gridColSettings}
+      />
     </MainContentCard>
   );
 }

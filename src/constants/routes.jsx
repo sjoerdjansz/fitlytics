@@ -5,6 +5,7 @@ import {
   Gauge,
   Gear,
   Users,
+  Barbell,
 } from "@phosphor-icons/react";
 
 // later nog auth/role velden
@@ -16,28 +17,47 @@ export const ROUTES = [
     icon: Gauge,
   },
   {
-    name: "exercises",
-    path: "/exercise-library",
+    name: "library",
+    path: "/library",
     showInNav: true,
     icon: Books,
     children: [
       {
-        name: "create exercise",
-        path: "create",
+        name: "exercises",
+        path: "exercises",
+        icon: Barbell,
+
+        children: [
+          {
+            name: "create",
+            path: "create",
+          },
+        ],
+      },
+      {
+        name: "workouts",
+        path: "workouts",
+        icon: FileText,
+
+        children: [
+          {
+            name: "create",
+            path: "create",
+          },
+        ],
+      },
+      {
+        name: "programs",
+        path: "programs",
+        icon: Folder,
+        children: [
+          {
+            name: "create",
+            path: "create",
+          },
+        ],
       },
     ],
-  },
-  {
-    name: "programs",
-    path: "/programs",
-    showInNav: true,
-    icon: Folder,
-  },
-  {
-    name: "workouts",
-    path: "/workouts",
-    showInNav: true,
-    icon: FileText,
   },
   {
     name: "clients",

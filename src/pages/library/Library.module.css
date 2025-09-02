@@ -1,0 +1,90 @@
+.library-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.library-card {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 350px;
+  min-width: 280px;
+  background-color: var(--color-surface-variant);
+  box-shadow: var(--shadow-normal);
+  border-radius: var(--radius-base);
+  overflow: hidden;
+}
+
+/* zorgt dat card verspringt, maar content doet ook vreemd..*/
+.library-card:hover {
+  transform: translateY(-6px);
+}
+
+.image-wrapper {
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  position: relative;
+}
+
+.image-wrapper > img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 0 1 300px;
+  padding: var(--spacing-md);
+}
+
+.copy > :first-child {
+  margin-bottom: 1rem;
+  color: var(--color-text-primary);
+}
+
+.copy > :last-child {
+  color: var(--color-text-secondary);
+}
+
+.card-meta {
+  display: flex;
+  gap: var(--spacing-lg);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-small);
+}
+
+.card-meta span {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+.card-meta strong {
+  padding: var(--spacing-sm);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-small);
+}
+
+.action-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+@media (max-width: 900px) {
+  .library-container {
+    justify-content: center;
+    gap: var(--spacing-lg);
+  }
+}
