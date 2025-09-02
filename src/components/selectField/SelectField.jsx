@@ -1,7 +1,6 @@
 import styles from "./SelectField.module.css";
 
 export function SelectField({ name, options = [], id, required }) {
-  console.log(name, options, id);
   return (
     <select
       required={required}

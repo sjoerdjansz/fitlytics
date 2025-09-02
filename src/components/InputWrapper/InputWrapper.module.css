@@ -15,19 +15,19 @@
 }
 
 .wSm {
-  flex: 1 1 12rem;
+  flex: 0 1 12rem;
 }
 
 .wMd {
-  flex: 1 1 20rem;
+  flex: 0 1 20rem;
 }
 
 .wLg {
-  flex: 1 1 28rem;
+  flex: 0 1 28rem;
 }
 
 .wFull {
-  flex: 1 1 100%;
+  flex: 0 1 100%;
 }
 
 @media (max-width: 900px) {

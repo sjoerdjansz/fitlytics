@@ -1,6 +1,6 @@
 .page-controls {
   display: flex;
-  gap: var(--spacing-md);
+  gap: var(--spacing-lg);
   padding: var(--spacing-md) 0;
   align-items: center;
   flex-wrap: wrap;

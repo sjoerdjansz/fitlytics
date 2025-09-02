@@ -1,58 +1,63 @@
 /* LIST HEADER */
 
-.exercises-list__header {
+.table-list {
   display: grid;
-  grid-template-columns: 1fr 120px 1fr 1fr 1fr 80px;
+  grid-template-columns: var(--cols, 1fr repeat(5, 1fr));
   grid-template-rows: 1fr;
-  grid-gap: var(--spacing-sm);
-  background-color: var(--color-surface-variant);
-  padding: var(--spacing-md);
-  border-top: 1px solid var(--color-border);
-  border-left: 1px solid var(--color-border);
-  border-right: 1px solid var(--color-border);
-  border-radius: var(--radius-base) var(--radius-base) 0 0;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-base);
 }
 
-.exercises-list__header-item {
+.table-list__header {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-surface-variant);
+}
+
+.table-list__header-item {
   display: flex;
   font-weight: 600;
 }
 
-.exercises-list__header-content {
+.table-list__header-content {
   display: flex;
   align-items: center;
-  gap: var(--spacing-md);
+  gap: var(--spacing-sm);
 }
 
-.exercises-list__header-content > :last-child {
+.table-list__header-content > :last-child {
   cursor: pointer;
 }
 
 /* LIST CONTENT */
-
-.exercises-list__content {
-  display: block;
-  border: 1px solid var(--color-border);
+/* belangrijk voor subgrid, list items worden directe children van table-list */
+.table-list__content {
+  display: contents;
 }
 
-.exercises-list__content-item {
+.table-list__content-item {
   display: grid;
-  grid-template-columns: 1fr 120px 1fr 1fr 1fr 80px;
-  grid-template-rows: 1fr;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
   gap: var(--spacing-md);
-  text-transform: capitalize;
   padding: var(--spacing-md);
   align-items: center;
-  border-bottom: 1px solid var(--color-border);
   color: var(--color-text-secondary);
+  text-transform: capitalize;
+  border-bottom: 1px solid var(--color-border);
 }
 
-.exercises-list__content-item:hover {
-  background-color: var(--color-bg);
+.table-list__content-item:hover {
+  background-color: var(--color-surface);
   cursor: pointer;
 }
 
-.exercises-list__content-item:last-child {
+.table-list__content-item:last-child {
   border-bottom: none;
 }
 
@@ -69,42 +74,39 @@
   flex-shrink: 0;
 }
 
-.edit-exercise {
+.edit-table-item {
   cursor: pointer;
 }
 
 @media (max-width: 900px) {
-  .exercises-list__header {
+  .table-list {
+    display: block;
+  }
+
+  .table-list__header {
     display: none;
   }
 
-  .exercises-list__content-item {
+  .table-list__content-item {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
     gap: var(--spacing-sm);
-    text-transform: capitalize;
     padding: var(--spacing-md);
-    align-items: center;
   }
 
-  .exercises-list__content {
-    border-radius: var(--radius-base);
-  }
-
-  .exercises-list__content-item > div {
+  .table-list__content-item > div {
     display: flex;
     gap: var(--spacing-sm);
   }
 
-  .exercises-list__content-item > div::before {
+  .table-list__content-item > div::before {
     flex: 0 1 100px;
     content: attr(data-label);
     display: block;
     color: var(--color-text-secondary);
   }
 
-  .exercise-name {
+  .table-list__content-item > :first-child {
     font-weight: 600;
   }
 }

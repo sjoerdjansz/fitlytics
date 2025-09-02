@@ -103,6 +103,28 @@ html {
   color: var(--color-text-primary);
 }
 
+.styled-scrollbars {
+  --scrollbar-foreground: #999;
+  --scrollbar-background: #333;
+  /* Foreground, Background */
+  scrollbar-color: var(--scrollbar-foreground) var(--scrollbar-background);
+}
+
+.styled-scrollbars::-webkit-scrollbar {
+  width: 10px; /* Mostly for vertical scrollbars */
+  height: 10px; /* Mostly for horizontal scrollbars */
+}
+
+.styled-scrollbars::-webkit-scrollbar-thumb {
+  /* Foreground */
+  background: var(--scrollbar-foreground);
+}
+
+.styled-scrollbars::-webkit-scrollbar-track {
+  /* Background */
+  background: var(--scrollbar-background);
+}
+
 h1,
 h2,
 h3,

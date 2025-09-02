@@ -13,6 +13,51 @@ import { DUMMY_FILTER_OPTIONS } from "../../constants/tempMuscles.js";
 export function ExerciseLibrary() {
   const navigate = useNavigate();
 
+  const exerciseTableHeaders = [
+    {
+      name: "Name",
+      label: "name",
+      sortable: true,
+      render: true,
+    },
+    {
+      name: "Body part",
+      label: "bodyPart",
+      sortable: true,
+      render: true,
+    },
+    {
+      name: "Primary",
+      label: "primaryMuscle",
+      sortable: true,
+      render: true,
+    },
+    {
+      name: "Secondary",
+      label: "secondaryMuscles",
+      sortable: false,
+      render: true,
+    },
+    {
+      name: "Joints",
+      label: "primaryJoints",
+      sortable: false,
+      render: false,
+    },
+    {
+      name: "Movement",
+      label: "movement",
+      sortable: true,
+      render: true,
+    },
+    {
+      name: "Load",
+      label: "systemicLoad",
+      sortable: true,
+      render: true,
+    },
+  ];
+
   return (
     <MainContentCard
       title="exercise library"
@@ -31,7 +76,7 @@ export function ExerciseLibrary() {
       }
     >
       <PageControls>
-        <InputWrapper width="sm" direction="row">
+        <InputWrapper width="md" direction="row">
           <InputField
             type="text"
             id="search-exercise"
@@ -39,7 +84,7 @@ export function ExerciseLibrary() {
             name="search-exercise"
           />
         </InputWrapper>
-        <InputWrapper width="sm" direction="row">
+        <InputWrapper width="md" direction="row">
           <SelectField
             name="type"
             id="exercise-type"
@@ -48,7 +93,7 @@ export function ExerciseLibrary() {
           />
         </InputWrapper>
       </PageControls>
-      <Table data={EXERCISES} />
+      <Table data={EXERCISES} headers={exerciseTableHeaders} />
     </MainContentCard>
   );
 }
