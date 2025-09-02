@@ -1,0 +1,74 @@
+.input-wrapper {
+  display: flex;
+  gap: var(--spacing-md);
+  min-width: 0;
+  max-width: 100%;
+}
+
+.row {
+  flex-direction: row;
+  align-items: center;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.wSm {
+  flex: 0 1 12rem;
+}
+
+.wMd {
+  flex: 0 1 20rem;
+}
+
+.wLg {
+  flex: 0 1 28rem;
+}
+
+.wFull {
+  flex: 0 1 100%;
+}
+
+@media (max-width: 900px) {
+  .wSm,
+  .wMd,
+  .wLg,
+  .wFull {
+    flex: 1 1 100%;
+  }
+}
+
+.input-wrapper > label {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+  min-width: fit-content;
+}
+
+.label-wrapper {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+.icon-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.input-wrapper > label > :last-child:hover {
+  color: var(--color-accent-primary);
+}
+
+.description {
+  font-size: var(--font-size-xsmall);
+  color: var(--color-text-secondary);
+}
+
+/* zorg dat content kan krimpen binnen wrapper */
+.input-wrapper > * {
+  min-width: 0;
+}

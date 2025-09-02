@@ -1,0 +1,28 @@
+.tooltip {
+  position: absolute;
+  z-index: 1000;
+  padding: var(--spacing-sm);
+  background: #333333;
+  color: #fff;
+  border-radius: var(--radius-base);
+  max-width: 280px;
+  width: max-content;
+  line-height: 1.25;
+  font-size: var(--font-size-xsmall);
+  left: 4rem;
+  bottom: 100%;
+  transform: translateX(-50%);
+  margin-bottom: 1rem;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #333333;
+  top: auto;
+  left: 25%;
+  bottom: -4px; /* pijltje aan bovenrand */
+  transform: translateX(-50%) rotate(45deg); /* gecentreerd */
+}

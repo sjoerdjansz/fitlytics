@@ -1,0 +1,112 @@
+/* LIST HEADER */
+
+.table-list {
+  display: grid;
+  grid-template-columns: var(--cols, 1fr repeat(5, 1fr));
+  grid-template-rows: 1fr;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-base);
+}
+
+.table-list__header {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-surface-variant);
+}
+
+.table-list__header-item {
+  display: flex;
+  font-weight: 600;
+}
+
+.table-list__header-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.table-list__header-content > :last-child {
+  cursor: pointer;
+}
+
+/* LIST CONTENT */
+/* belangrijk voor subgrid, list items worden directe children van table-list */
+.table-list__content {
+  display: contents;
+}
+
+.table-list__content-item {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  align-items: center;
+  color: var(--color-text-secondary);
+  text-transform: capitalize;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.table-list__content-item:hover {
+  background-color: var(--color-surface);
+  cursor: pointer;
+}
+
+.table-list__content-item:last-child {
+  border-bottom: none;
+}
+
+.th-content {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+}
+
+/* zorgt dat svg icon niet kan krimpen */
+.th-content svg {
+  flex-shrink: 0;
+}
+
+.edit-table-item {
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .table-list {
+    display: block;
+  }
+
+  .table-list__header {
+    display: none;
+  }
+
+  .table-list__content-item {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+  }
+
+  .table-list__content-item > div {
+    display: flex;
+    gap: var(--spacing-sm);
+  }
+
+  .table-list__content-item > div::before {
+    flex: 0 1 100px;
+    content: attr(data-label);
+    display: block;
+    color: var(--color-text-secondary);
+  }
+
+  .table-list__content-item > :first-child {
+    font-weight: 600;
+  }
+}

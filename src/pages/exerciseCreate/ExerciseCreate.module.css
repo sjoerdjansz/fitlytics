@@ -1,0 +1,96 @@
+.create-exercise {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  padding: var(--spacing-md);
+  min-width: 0;
+  gap: var(--spacing-xl);
+}
+
+.create-exercise-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  flex: 0 1 820px;
+  background-color: var(--color-surface-variant);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-small);
+  height: 100%;
+  box-shadow: var(--shadow-subtle);
+}
+
+.create-exercise-form > fieldset {
+  display: flex;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  border: 0;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+legend {
+  font-weight: 600;
+}
+
+.create-exercise-form > fieldset:last-of-type {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.form-footer {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-md);
+}
+
+/* sidebar */
+
+.create-exercise-sidebar {
+  display: flex;
+  flex: 0 0 280px;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  background-color: var(--color-surface-variant);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-small);
+  box-shadow: var(--shadow-subtle);
+  /* TODO: ik twijfel wat handig is, geen height (of auto) of fit content,
+  later bepalen wat beter in de ui/ux past*/
+  height: fit-content;
+}
+
+.user-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.muscles-list,
+.joints-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.muscles-list > li,
+.joints-list > li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hamstrings {
+  width: 60%;
+  align-self: center;
+}
+
+@media (max-width: 900px) {
+  .create-exercise {
+    flex-direction: column;
+    align-self: auto;
+    width: 100%;
+  }
+}
