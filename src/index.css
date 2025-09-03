@@ -164,7 +164,6 @@ a {
 a:hover {
   text-decoration: none;
   color: var(--color-accent-primary-hover);
-  font-weight: 500;
 }
 
 ul,

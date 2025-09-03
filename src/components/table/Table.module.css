@@ -88,7 +88,8 @@
 
   .table-list__content-item {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: auto 1fr;
+    align-items: start;
     gap: var(--spacing-sm);
     padding: var(--spacing-md);
   }
@@ -107,5 +108,24 @@
 
   .table-list__content-item > :first-child {
     font-weight: 600;
+  }
+
+  /* Avatar-cell: geen label before de waarde */
+  .cell--avatar::before {
+    content: none !important; /* overrulet de algemene ::before-regel */
+  }
+
+  /* Alle niet-avatar cellen komen in kolom 2 (rechts) */
+  .table-list__content-item > div:not(.cell--avatar) {
+    grid-column: 2;
+  }
+
+  /* Avatar-cell komt ook in kolom 2 (links) maar heeft geen before text */
+  .cell--avatar {
+    grid-column: 2;
+    justify-content: flex-start; /* geheel links in zijn kolom */
+    display: flex;
+    margin-bottom: var(--spacing-xs);
+    align-items: center;
   }
 }

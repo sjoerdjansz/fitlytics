@@ -1,6 +1,12 @@
 import styles from "./SelectField.module.css";
 
-export function SelectField({ name, options = [], id, required }) {
+export function SelectField({
+  name,
+  options = [],
+  id,
+  required,
+  baseValueName,
+}) {
   return (
     <select
       required={required}
@@ -12,7 +18,7 @@ export function SelectField({ name, options = [], id, required }) {
       defaultValue="" // probably weghalen als het controlled wordt
     >
       <option value="" disabled hidden>
-        Select {name}
+        {baseValueName ? baseValueName : `Select ${name}`}
       </option>
       {options.map((option) => {
         return (

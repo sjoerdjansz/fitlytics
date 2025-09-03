@@ -1,32 +1,33 @@
 .library-container {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 100%;
+  flex-direction: column;
   gap: var(--spacing-md);
-  padding: var(--spacing-md);
-  flex-wrap: wrap;
-  flex: 1;
+  padding: var(--spacing-sm);
+  max-width: 1024px; /* TODO: veranderen obv wat werkt voor design */
+  margin-inline: auto; /* centreert kolom. Zou ook met flexbox kunnen, maar dit is sneller */
 }
 
 .library-card {
   display: flex;
-  flex-direction: column;
-  flex: 0 1 350px;
-  min-width: 280px;
+  flex-direction: row;
   background-color: var(--color-surface-variant);
   box-shadow: var(--shadow-normal);
   border-radius: var(--radius-base);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+  will-change: transform;
   overflow: hidden;
 }
 
 /* zorgt dat card verspringt, maar content doet ook vreemd..*/
 .library-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-subtle-wide);
 }
 
 .image-wrapper {
+  flex: 1 1 200px;
   aspect-ratio: 16/9;
   overflow: hidden;
   position: relative;
@@ -44,8 +45,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex: 0 1 300px;
+  flex: 2 1 300px;
   padding: var(--spacing-md);
+  gap: var(--spacing-md);
 }
 
 .copy > :first-child {
@@ -78,13 +80,17 @@
 
 .action-wrapper {
   display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
+  flex-direction: row;
+  gap: var(--spacing-md);
 }
 
 @media (max-width: 900px) {
   .library-container {
-    justify-content: center;
-    gap: var(--spacing-lg);
+    height: auto;
+  }
+
+  .action-wrapper {
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
   }
 }

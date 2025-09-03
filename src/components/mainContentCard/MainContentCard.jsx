@@ -8,6 +8,7 @@ export function MainContentCard({
   urls = [],
   flexDirection = "column",
   alignItems = "flex-start",
+  mainContentPadding,
 }) {
   return (
     <section className={styles["main-content-card"]}>
@@ -16,6 +17,7 @@ export function MainContentCard({
           <h1 className={styles.title}>{title}</h1>
           {Array.isArray(urls.children) && urls.children.length > 0 ? (
             <ul className={styles["header-nav"]}>
+              <p>Go to:</p>
               {urls.children.map((url) => {
                 return (
                   <li key={url.name}>
@@ -37,7 +39,10 @@ export function MainContentCard({
       </header>
       <main
         className={`${styles.main} ${styles[flexDirection]}`}
-        style={{ alignItems }}
+        style={{
+          alignItems,
+          "--custom-padding": mainContentPadding,
+        }}
       >
         {children}
       </main>

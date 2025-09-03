@@ -13,6 +13,7 @@ export function Table({ data, headers, gridColumns }) {
     return item.render;
   });
 
+  // functie die de data die gerendert moet worden checkt per type
   function renderValue(row, column) {
     const value = row[column.label];
     if (Array.isArray(value)) {
@@ -59,9 +60,27 @@ export function Table({ data, headers, gridColumns }) {
             return (
               <li className={styles["table-list__content-item"]} key={row.id}>
                 {filteredHeaders.map((column) => {
+                  // we checken of er een avatar is en stoppen boolean in de const
+                  const isAvatar = column.label === "avatar";
+
                   return (
-                    <div data-label={column.name} key={column.label}>
-                      {renderValue(row, column)}
+                    <div
+                      // geen label voor avatar zodat er geen before content kan komen
+                      data-label={isAvatar ? undefined : column.name}
+                      key={column.label}
+                      // als er een avatar is dan geven we de cell speciale class
+                      className={isAvatar ? styles["cell--avatar"] : undefined}
+                    >
+                      {/* als er avatar in de row is renderen we die, anders "-"*/}
+                      {/*niks. // TODO: eigenlijk moet dit niet nodig zijn omdat*/}
+                      {/*Avatar component de fallback image moet tonen*/}
+                      {/*En tot slot anders de andere content tonen met de renderValue*/}
+
+                      {isAvatar
+                        ? row.avatar
+                          ? row.avatar
+                          : "-"
+                        : renderValue(row, column)}
                     </div>
                   );
                 })}

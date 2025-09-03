@@ -11,7 +11,8 @@
   flex: 1 1 auto;
   min-height: 0;
   align-items: stretch;
-  padding: var(--spacing-md);
+  padding: var(--custom-padding, var(--spacing-md));
+  z-index: 1;
   overflow: auto;
   box-shadow: var(--shadow-normal);
 }
@@ -35,6 +36,10 @@
 .header-nav {
   display: flex;
   gap: var(--spacing-lg);
+}
+
+.header-nav > p {
+  font-weight: 600;
 }
 
 .selected {

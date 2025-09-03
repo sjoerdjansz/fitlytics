@@ -6,10 +6,17 @@ import exerciseImage from "../../assets/exercise-image.jpg";
 import { Button } from "../../components/button/Button.jsx";
 import { Link, useNavigate } from "react-router-dom";
 
-function LibraryCard({ image, title, description }) {
+function LibraryCard({ image, title, description, directionReversed = false }) {
   const navigate = useNavigate();
+
+  const flexDirection = directionReversed ? "row-reverse" : "row";
+
   return (
-    <Link to={title.toLowerCase()} className={styles["library-card"]}>
+    <Link
+      to={title.toLowerCase()}
+      className={styles["library-card"]}
+      style={{ flexDirection: flexDirection }}
+    >
       <div className={styles["image-wrapper"]}>
         <img src={image} alt={`${title} library card image`} />
       </div>
