@@ -1,5 +1,5 @@
 .input-wrapper {
-  display: flex;
+  display: inline-flex;
   gap: var(--spacing-md);
   min-width: 0;
   max-width: 100%;
@@ -15,19 +15,22 @@
 }
 
 .wSm {
-  flex: 0 1 12rem;
+  width: 12rem;
+  max-width: 100%;
 }
 
 .wMd {
-  flex: 0 1 20rem;
+  width: 20rem;
+  max-width: 100%;
 }
 
 .wLg {
-  flex: 0 1 28rem;
+  width: 28rem;
+  max-width: 100%;
 }
 
 .wFull {
-  flex: 0 1 100%;
+  width: 100%;
 }
 
 @media (max-width: 900px) {

@@ -8,7 +8,7 @@ import {
   Barbell,
 } from "@phosphor-icons/react";
 
-// later nog auth/role velden
+// later nog auth/role velden - vooral een array voor navigations
 export const ROUTES = [
   {
     name: "dashboard",

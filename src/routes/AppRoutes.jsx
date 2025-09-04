@@ -10,6 +10,7 @@ import { Signup } from "../pages/signup.jsx";
 import { Signin } from "../pages/signin.jsx";
 import { ExerciseCreate } from "../pages/exerciseCreate/ExerciseCreate.jsx";
 import { Library } from "../pages/library/Library.jsx";
+import { NewClient } from "../pages/newClient/NewClient.jsx";
 
 export function AppRoutes() {
   return (
@@ -24,11 +25,16 @@ export function AppRoutes() {
             <Route index element={<ExerciseLibrary />} />
             <Route path="create" element={<ExerciseCreate />} />
           </Route>
+
           <Route path="workouts" element={<Workouts />} />
           <Route path="programs" element={<Programs />} />
         </Route>
 
-        <Route path="clients" element={<Clients />} />
+        <Route path="clients" element={<Outlet />}>
+          <Route index element={<Clients />} />
+          <Route path="new" element={<NewClient />} />
+        </Route>
+
         <Route path="settings" element={<Settings />} />
       </Route>
 

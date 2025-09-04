@@ -10,8 +10,11 @@ import { Table } from "../../components/table/Table.jsx";
 import { CLIENTS } from "../../constants/clients.js";
 import profilePicture from "../../assets/no-profile-image-correct.jpeg";
 import { Avatar } from "../../components/avatar/Avatar.jsx";
+import { useNavigate } from "react-router-dom";
 
 export function Clients() {
+  const navigate = useNavigate();
+
   const clientNavItems = [
     {
       name: "Details",
@@ -113,6 +116,9 @@ export function Clients() {
           label="New client"
           size="md"
           variant="primary-cta"
+          onClick={() => {
+            navigate("new");
+          }}
         />
       }
     >
